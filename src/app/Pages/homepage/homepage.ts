@@ -1,14 +1,19 @@
-import { Component } from '@angular/core';
-import {Title} from '../../Components/title/title';
-
+import {Component, input, Input} from '@angular/core';
+import {topOfPageTitle} from '../../Components/title/title';
+import {Button} from '../../button/button';
+import {InputBox} from '../../input-box/input-box';
 @Component({
   selector: 'app-homepage',
   imports: [
-    Title
+    topOfPageTitle, Button, InputBox
   ],
   templateUrl: './homepage.html',
   styleUrl: './homepage.scss',
 })
+
 export class Homepage {
+  Log(eventText: string) {
+    console.log(eventText);
+  }
 
 }

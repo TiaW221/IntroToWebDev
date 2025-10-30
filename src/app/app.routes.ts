@@ -7,12 +7,15 @@ export const routes: Routes = [
   // This is the base page, takes you to the homepage, it's why it has nothing else in the url.
   { path: '',
     component: Homepage,
+    title: 'Home',
   },
   { path: 'games',
   component: Page2,
+    title: 'Games',
   },
   { path: 'holidays',
     component: Page3,
+    title: 'Holidays',
   },
 
 ];

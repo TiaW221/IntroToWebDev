@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-import {Title} from '../../Components/title/title';
+import {topOfPageTitle } from '../../Components/title/title';
 
 @Component({
   selector: 'app-page3',
   imports: [
-    Title
+    topOfPageTitle
   ],
   templateUrl: './page3.html',
   styleUrl: './page3.scss',
 })
 export class Page3 {
-
+title: string = 'Holidays';
 }
