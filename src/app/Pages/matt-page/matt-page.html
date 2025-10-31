@@ -1,0 +1,125 @@
+<title> Matt Example</title>
+<app-title [titlePage] = "'Matt Example'"></app-title>
+<!-- // Control Flow (@if, @else, @switch)
+  // Show a <p> tag that only appears when showMessage is true using @if.
+  // Use @if and @else to display:
+  // <p>Welcome back!</p> when loggedIn is true
+  // <p>Please sign in.</p> when loggedIn is false
+  // Use @switch on a variable called connectionStatus to show one of three <p> tags:
+  // “Connecting…”
+  // “Connected!”
+  // “Disconnected!”-->
+
+@if (showMessage) {
+  <p> Welcome Back </p>
+} @else {
+  <p> Who are you? </p> }
+
+@if (loggedIn) {
+  <p> Welcome back!</p>
+} @else {
+  <p> Please sign in. </p>
+}
+
+@switch (connectionStatus) {
+  @case ('Connecting') {
+    <h3>Connecting...</h3>
+  }
+  @case ('Connected!') {
+    <h3>You are connected!</h3>
+  }
+  @case ('Disconnected!') {
+    <h3>You are disconnected!</h3>
+  }
+  @default {
+    <h3>No connection status</h3>
+  }
+}
+<!-- 🔁 Looping with @for-->
+<!--Use @for to display a list of task names inside a <ul> using a variable called tasks.
+ Inside the @for, show the index number before each task name (e.g., “1. Buy milk”).
+ Within the @for, use @if to only display a <li> when the task’s completed property is true.-->
+
+<!--<ul>-->
+<!--  <h2> To do List </h2>-->
+<!--  @for (task of tasks; track task.name; let i = $index) {-->
+<!--    <li>-->
+<!--      {{i + 1}}. {{task.name}}-->
+<!--    </li>-->
+<!--  }-->
+<!--</ul>-->
+
+<!--both the same thing, just above ^^ doesn't use ngFor-->
+<!--<ul>-->
+<!--  <li *ngFor="let task of tasks; let i = index">-->
+<!--    Tasks {{ i + 1 }}. {{ task.name }} <br>-->
+<!--  </li>-->
+<!--</ul>-->
+
+<!--<h2>To do List</h2>-->
+
+<!--@if (showTasks) {-->
+<!--  @if (tasks.length > 0){-->
+<!--<div>-->
+<!--<ul>-->
+
+<!--  @for (task of tasks; track task.name; let i = $index) {-->
+<!--    @if (task.completed) {-->
+<!--      <li>-->
+<!--        {{ i + 1 }}. {{ task.name }}-->
+<!--      </li>-->
+<!--    }-->
+<!--  }-->
+<!--</ul>-->
+<!--</div>-->
+<!--  } @else {-->
+<!--  <p> no tasks found</p>-->
+<!--  }-->
+<!--}-->
+
+<!--<button (click)="toggleShowTasks()">Show Tasks</button>-->
+
+<!-- 🎛️ Conditional Display-->
+<!--Use @if with a variable called showTasks-->
+<!--to toggle visibility of a <div> containing task names.-->
+<!--Show a <p> that says “No tasks found” when the tasks array-->
+<!--is empty (hint: check the array length with @if).-->
+
+<h2>To do List</h2>
+<div>
+@if (showTasks) {
+@if (tasks.length === 0) {
+  <p>No tasks found</p>
+} @else {
+  <ul>
+    @for (task of tasks; track task.name; let i = $index) {
+      @if (task.completed && task.name.length > 0) {
+        <li>
+          {{ i + 1 }}. {{ task.name }}
+        </li>
+      }
+    }
+  </ul>
+}
+}
+</div>
+<button (click)="toggleShowTasks()">Show Tasks</button>
+
+<!--Apply [ngStyle] to a <p> so that the text colour is:-->
+<!--  Green when online is true-->
+<!--  Red when online is false-->
+<!--  Use [ngStyle] on a <button>
+so the background changes colour when isDarkMode is true or false.-->
+
+<p [ngStyle]="{color: showOnline ? 'green' : 'red'}">
+  Online: {{ showOnline }}
+</p>
+
+
+<button (click)="toggleDarkMode()" [ngStyle]="{ 'background-color': isDarkMode ? 'black' : 'white', 'color': isDarkMode ? 'white' : 'black' }">
+  {{ isDarkMode ? 'Dark Mode' : 'Light Mode' }}
+</button>
+
+<!--<button (click)="toggleDarkMode()">Toggle Mode</button>-->
+
+

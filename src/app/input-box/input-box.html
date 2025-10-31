@@ -1,12 +1,16 @@
-<input type="text" (change)="updateInput($event)" placeholder="Type something..." />
-<button (click)="showValue()">Type a word</button> <br>
-<input type="text" (change)="updateInput($event)" placeholder="Type something..." />
-<button (click)="showValue()">Type another word</button> <br>
-<input type="text" (change)="updateInput($event)" placeholder="Type something..." />
-<button (click)="showValue()">Type a third word</button>
+<!--<input type="text" (change)="updateInput($event)" placeholder="Type a word" />-->
+<!--<button (click)="showValue()">Commit 1</button> <br>-->
+<!--<input type="text" (change)="updateInput($event)" placeholder="Type another word " />-->
+<!--<button (click)="showValue()">Commit 2</button> <br>-->
+<!--<input type="text" (change)="updateInput($event)" placeholder="Type a third word" />-->
+<!--<button (click)="showValue()"> Commit 3</button>-->
 
+<br><br><br>
 
-
-<!--<p *ngIf="displayedValue">You typed: {{ displayedValue }} </p>-->
-
+<input #inputBox1 type="text" placeholder="..."> <br>
+<input #inputBox2 type="text" placeholder="..."> <br>
+<input #inputBox3 type="text" placeholder="..."> <br>
+<br>
+<button (click) ="buttonClicked2()"> click me (the sequel) </button> <br>
+<p>You logged: {{ inputTextTotal }}</p>
 

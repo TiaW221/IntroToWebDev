@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {CommonModule} from '@angular/common';
+import {ElementRef, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-input-box',
@@ -9,37 +10,28 @@ import {CommonModule} from '@angular/common';
 })
 
 export class InputBox {
-  @Input()
-  displayInBox: string = "";
-  secondDisplay: string = "";
-  thirdDisplay: string = "";
-  displayedValue: string = "";
+  // @Input()
+  // stuff I did to link all 3 of our codes
+// @Input() inputText1!: string;
+// @Input() inputText2!: string;   //--- not sure which way is best
+// @Input() inputText3: string ='';
+  @Input() inputTextTotal: string = '';
 
-  updateInput(event: Event) {
-    if (this.displayInBox && this.secondDisplay && this.thirdDisplay !== "") {
-      this.displayInBox = (event.target as HTMLInputElement).value;
-      this.secondDisplay = (event.target as HTMLInputElement).value;
-      this.thirdDisplay = (event.target as HTMLInputElement).value;
-    }
-  }
-  showValue() {
-    this.displayedValue = this.displayInBox;
-    console.log(`{this.displayInBox} + {this.secondDisplay} + {this.thirdDisplay}`);
+  @Output() inputTextEvent = new EventEmitter();
+
+  @ViewChild('inputBox1') inputBox1!: ElementRef<HTMLInputElement>;
+  @ViewChild('inputBox2') inputBox2!: ElementRef<HTMLInputElement>;
+  @ViewChild('inputBox3') inputBox3!: ElementRef<HTMLInputElement>;
 
 
-    // updateInput(event: Event) {
-    //   this.displayInBox = (event.target as HTMLInputElement).value;
-    // }
-    //
-    // showValue() {
-    //   this.displayedValue = this.displayInBox;
-    //   // console.log(this.displayedValue);
-    //   // alert(this.displayedValue);
-    // }
+  buttonClicked2() {
+    // this.inputText1 = this.inputBox1.nativeElement.value;  --- again, not sure which way is best
+
+    let inputBoxVar1 = this.inputBox1.nativeElement.value;
+    let inputBoxVar2 = this.inputBox2.nativeElement.value;
+    let inputBoxVar3 = this.inputBox3.nativeElement.value;
+
+    this.inputTextTotal = inputBoxVar1 + " " + inputBoxVar2 + " " + inputBoxVar3;
+    this.inputTextEvent.emit(this.inputTextTotal);
   }
 }
-
-
-
-
-

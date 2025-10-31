@@ -6,7 +6,43 @@
 <!--  (textEvent)="Log($event)">-->
 <!--</app-button>-->
 
-<app-input-box [displayInBox]="'Input Box'"> </app-input-box>
+<!--<app-input-box [displayInBox]="'Input Box'"> </app-input-box>-->
 
+<!--Work with Matt today -->
+<h1 *ngIf="showButton">Hello</h1>
 
+@if (showButton) {
+  <h2>Hello</h2>
+} @else {
+  <h2> This is my else </h2>
+}
+
+@if (counter === 5) {
+  <h1> this is 5 </h1>
+} @else if (counter < 5) {
+  <h1> this is less than 5 </h1>
+} @else {
+  <h1> this is greater than 5 </h1>
+}
+<!--this is a for loop in HTML, it simplifies having to write repetitive tags-->
+@for (book of books; track book.name) {
+  <button>{{book.name}}</button>
+}
+<!--This is a switch statement in HTML-->
+@switch (mode) {
+  @case ('list') {
+    <h1>Showing list view</h1>
+  }
+  @case ('grid') {
+    <h1>Showing grid view</h1>
+  }
+  @default {
+    <h1>Showing default view</h1>
+  }
+}
+
+<button (click)="toggleShowButton()">Toggle</button>
+<button (click)="increaseCount()">Increase count</button>
+<button (click)="decreaseCount()">Decrease count</button>
+<p [ngStyle]="{color: counter === 5 ? 'red' : 'blue'}" >Counter: {{ counter }}</p>
 
