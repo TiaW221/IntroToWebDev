@@ -116,10 +116,8 @@ so the background changes colour when isDarkMode is true or false.-->
 </p>
 
 
-<button (click)="toggleDarkMode()" [ngStyle]="{ 'background-color': isDarkMode ? 'black' : 'white', 'color': isDarkMode ? 'white' : 'black' }">
+<button (click)="toggleDarkMode()" [ngStyle]="{ 'background-color': isDarkMode ? 'black' : 'white', 'color': isDarkMode ? 'white' : 'black'}">
   {{ isDarkMode ? 'Dark Mode' : 'Light Mode' }}
 </button>
-
-<!--<button (click)="toggleDarkMode()">Toggle Mode</button>-->
 
 

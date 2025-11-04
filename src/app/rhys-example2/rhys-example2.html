@@ -1,0 +1,50 @@
+<app-title [titlePage] = "'Rhys Example'"></app-title>
+<p>rhys-example2 works!</p>
+@switch(colour) {
+  @case ('red') {
+  <p> stop <p>
+  }
+  @case('amber') {
+    <p> Get ready to Stop </p>
+}
+  @case ('green') {
+    <p> Go </p>
+  }
+  @default {
+    <p> No colour </p>
+  }
+}
+
+@for (item of myLetterArray; track $index) {
+  <li> {{item}}</li>
+} @empty { <p> No items in the array </p>
+}
+
+
+@for (item of myLetterArray1; track item.key) {
+  <li> {{item.letter}}</li>
+} @empty { <p> No items in the array </p>
+}
+
+<main class="main">
+  <button
+    (click)="showTasks = !showTasks"
+  >Toggle Task</button>
+
+  @if (showTasks) {
+    <div class="content">
+      @if (isAnyTaskComplete) {
+      @for (task of taskArray; track $index) {
+        @if (task.completed) {
+          <li>{{$index+1}}. {{task.name}}</li>
+        }
+      } @empty {
+        <p>No tasks found</p>
+      }
+      } @else {
+        <p>All tasks are incomplete</p>
+      }
+    </div>
+  }
+  
+</main>

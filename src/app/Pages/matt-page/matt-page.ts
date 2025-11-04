@@ -35,12 +35,12 @@ export class MattPage {
 
   showTasks = true;
   tasks: ({ name: string, completed: boolean })[] = [
-    // {name: "clean house", completed: false},
-    //     {name: "go to the gym", completed: false},
-    //     {name: "do uni work", completed: false},
-    //     {name: "buy milk", completed: false},
-    //     {name: "", completed: false},
-    //     {name: "", completed: false},
+    {name: "clean house", completed: false},
+        {name: "go to the gym", completed: false},
+        {name: "do uni work", completed: false},
+        {name: "buy milk", completed: false},
+        {name: "", completed: false},
+        {name: "", completed: false},
   ]
 
 // 🎛️ Conditional Display
